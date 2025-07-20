@@ -1,0 +1,15 @@
+<%- include("partials/header.ejs") %>
+<link rel="stylesheet" href="/styles/layout.css">
+<link rel="stylesheet" href="/styles/content.css">
+
+<h1>Contact Me</h1>
+<form action="/contact" method="post">
+  <input name="name" type="text" class="feedback-input" placeholder="Name" />
+  <input name="email" type="text" class="feedback-input" placeholder="Email" />
+  <textarea name="comment" class="feedback-input" placeholder="Comment"></textarea>
+  <input type="submit" value="SUBMIT" />
+</form>
+
+
+
+  <%- include("partials/footer.ejs") %>
