@@ -1,6 +1,4 @@
-import express from "express";
-
-
+const express = require("express");
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -41,8 +39,8 @@ app.get("/contact", (req, res) => {
 })
 
 
-/*POST */
 
+/*Post */
 app.post("/contact", (req, res) => {
   const name = req.body.name;
   const email = req.body.email;
@@ -54,6 +52,16 @@ app.post("/contact", (req, res) => {
   })
 })
 
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
+
+app.use((req, res) => {
+  res.status(404).send('Page not found');
+});
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
